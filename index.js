@@ -8,8 +8,16 @@ module.exports = {
   print (wb) {
     let str = ''
     for (const sheet of wb.sheets()) {
+      const values = sheet.usedRange().value()
+      const cleanedValues = values.map(row => row.map(value => {
+        if (value === undefined) {
+          return ''
+        } else {
+          return value
+        }
+      }))
       str += sheet.name() + ':\n\n'
-      str += table(sheet.usedRange().value())
+      str += table(cleanedValues)
       str += '\n---\n'
     }
     return str
