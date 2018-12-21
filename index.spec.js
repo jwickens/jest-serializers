@@ -20,6 +20,9 @@ async function createTestData () {
   wb.sheet("Masks").cell("B2").value(XlsxPopulate.dateToNumber(new Date()))
   wb.sheet("Masks").cell("C1").value("ID")
   wb.sheet("Masks").cell("C2").value(Math.floor(Math.random() * 100))
+  wb.sheet("Masks").cell("D1").value("some other dt")
+  wb.sheet("Masks").cell("D2").value(XlsxPopulate.dateToNumber(new Date()))
+
 
   return wb
 }

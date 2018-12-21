@@ -1,4 +1,5 @@
 const Workbook = require('xlsx-populate/lib/Workbook');
+const XlsxPopulate = require('xlsx-populate');
 const table = require('text-table');
  
 module.exports = {
@@ -24,12 +25,15 @@ module.exports = {
         header.forEach((heading, j) => {
           if (heading.match(/time/i)) {
             row[j] = typeof row[j] === 'number' ? '<time>': row[j]
-          }
-          if (heading.match(/date/i)) {
+          } else if (heading.match(/date/i)) {
             row[j] = typeof row[j] === 'number' ? '<date>': row[j]
-          }
-          if (heading.match(/id/i)) {
+          } else if (heading.match(/id/i)) {
             row[j] = row[j] ? '<id>': row[j]
+          } else if (typeof row[j] === 'number') {
+            const d = XlsxPopulate.numberToDate(row[j])
+            if (d.getDate() === (new Date().getDate())) {
+              row[j] = '<date>'
+            }
           }
         })
         return row
