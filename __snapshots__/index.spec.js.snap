@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ignores other data types 1`] = `
+Object {
+  "type": "not a workbook",
+}
+`;
+
+exports[`saves a snapshot 1`] = `
+Sheet1:
+
+This is neat!
+---
+Sheet2:
+
+Student  Grade
+John     F
+Sally    A+
+---
+
+`;
