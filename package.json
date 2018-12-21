@@ -1,6 +1,6 @@
 {
   "name": "jest-serializer-xlsx-populate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
@@ -13,6 +13,8 @@
     "xlsx-populate": ">=1.0.0"
   },
   "jest": {
-    "snapshotSerializers": ["./index.js"]
+    "snapshotSerializers": [
+      "./index.js"
+    ]
   }
 }
