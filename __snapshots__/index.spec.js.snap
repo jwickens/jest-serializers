@@ -15,8 +15,13 @@ Sheet2:
 
 Student  Grade
 John     F
-Sally
+Sally    A+
 Kim
+---
+Masks:
+
+Date    Time    ID
+<date>  <time>  <id>
 ---
 
 `;

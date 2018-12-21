@@ -2,6 +2,8 @@
 
 Turn an [xlsx-populate](https://github.com/dtjohnson/xlsx-populate) workbook into a pretty snapshot.
 
+The serializer will also look for columns marked as ID or Date and turn mask them, as these will normally change from test to test.
+
 # Usage
 
 First you need to add the snapshot serializer. You have two options:

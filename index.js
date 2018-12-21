@@ -16,8 +16,26 @@ module.exports = {
           return value
         }
       }))
+      const header = cleanedValues[0]
+      const maskedValues = cleanedValues.map((row, i) => {
+        if (i === 0) {
+          return row
+        }
+        header.forEach((heading, j) => {
+          if (heading.match(/time/i)) {
+            row[j] = typeof row[j] === 'number' ? '<time>': row[j]
+          }
+          if (heading.match(/date/i)) {
+            row[j] = typeof row[j] === 'number' ? '<date>': row[j]
+          }
+          if (heading.match(/id/i)) {
+            row[j] = row[j] ? '<id>': row[j]
+          }
+        })
+        return row
+      })
       str += sheet.name() + ':\n\n'
-      str += table(cleanedValues)
+      str += table(maskedValues)
       str += '\n---\n'
     }
     return str

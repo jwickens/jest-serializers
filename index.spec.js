@@ -11,7 +11,16 @@ async function createTestData () {
   wb.sheet("Sheet2").cell("B1").value("Grade")
   wb.sheet("Sheet2").cell("B2").value("F")
   wb.sheet("Sheet2").cell("B3").value("A+")
-  wb.sheet("Sheet2").cell("B3").value(undefined)
+  wb.sheet("Sheet2").cell("B4").value(undefined)
+
+  wb.addSheet('Masks')
+  wb.sheet("Masks").cell("A1").value("Date")
+  wb.sheet("Masks").cell("A2").value(XlsxPopulate.dateToNumber(new Date()))
+  wb.sheet("Masks").cell("B1").value("Time")
+  wb.sheet("Masks").cell("B2").value(XlsxPopulate.dateToNumber(new Date()))
+  wb.sheet("Masks").cell("C1").value("ID")
+  wb.sheet("Masks").cell("C2").value(Math.floor(Math.random() * 100))
+
   return wb
 }
 
