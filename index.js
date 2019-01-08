@@ -31,7 +31,8 @@ module.exports = {
             row[j] = row[j] ? '<id>': row[j]
           } else if (typeof row[j] === 'number') {
             const d = XlsxPopulate.numberToDate(row[j])
-            if (d.getDate() === (new Date().getDate())) {
+            const now = new Date()
+            if (d.getDate() === now.getDate() && d.getFullYear() === now.getFullYear() && d.getMonth() === noew.getMonth()) {
               row[j] = '<date>'
             }
           }
