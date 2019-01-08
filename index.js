@@ -32,7 +32,7 @@ module.exports = {
           } else if (typeof row[j] === 'number') {
             const d = XlsxPopulate.numberToDate(row[j])
             const now = new Date()
-            if (d.getDate() === now.getDate() && d.getFullYear() === now.getFullYear() && d.getMonth() === noew.getMonth()) {
+            if (d.getDate() === now.getDate() && d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth()) {
               row[j] = '<date>'
             }
           }
