@@ -20,8 +20,8 @@ Kim
 ---
 Masks:
 
-Date    Time    ID    some other dt
-<date>  <time>  <id>  <date>
+Date    Time    ID  some other dt  dt as text
+<date>  <time>  0   <date>         <date>
 ---
 
 `;

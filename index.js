@@ -29,14 +29,10 @@ module.exports = {
             row[j] = typeof row[j] === 'number' ? '<date>': row[j]
           } else if (heading.match(/id/i)) {
             row[j] = row[j] ? '<id>': row[j]
-          } else if (typeof row[j] === 'number') {
-            const d = XlsxPopulate.numberToDate(row[j])
-            const now = new Date()
-            if (d.getDate() === now.getDate() && d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth()) {
-              row[j] = '<date>'
-            }
+          } else if (isTodaysDateHeuristic(row[j])) {
+            row[j] = '<date>'
           }
-        })
+        });
         return row
       })
       str += sheet.name() + ':\n\n'
@@ -45,4 +41,20 @@ module.exports = {
     }
     return str
   }
+}
+
+function isTodaysDateHeuristic (value) {
+  let d
+  if (typeof value === 'number') {
+    d = XlsxPopulate.numberToDate(value)
+  } else if (typeof value === 'string') {
+    if (!isNaN(Date.parse(value))) {
+      d = new Date(value)
+    }
+  }
+  const now = new Date()
+  if (d) {
+    return now.toDateString() === d.toDateString()
+  }
+  return false
 }
