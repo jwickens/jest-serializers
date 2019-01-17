@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`jest-serializer-xlsx-populate ignores other data types 1`] = `
-{
-  "type": "not a workbook"
+Object {
+  "type": "not a workbook",
 }
 `;
 

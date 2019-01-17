@@ -1,4 +1,5 @@
 const { isTodaysDate } = require('jest-serializer-heuristics');
+const prettyFormat = require('pretty-format');
 
 module.exports = {
   test (val) {
@@ -6,7 +7,11 @@ module.exports = {
   },
 
   print (val) {
-    return JSON.stringify(recurseSerialize(val), null, 2)
+    const cleaned = recurseSerialize(val)
+    return prettyFormat(cleaned, {
+      escapeRegex: true,
+      printFunctionName: false
+    })
   }
 }
 

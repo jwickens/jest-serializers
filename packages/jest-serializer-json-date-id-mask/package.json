@@ -6,9 +6,7 @@
   "repository": "https://github.com/jwickens/jest-serializers/tree/master/packages/jest-serializer-json-date-id-mask",
   "dependencies": {
     "jest-serializer-heuristics": "^1.1.7",
+    "pretty-format": "^23.6.0",
     "text-table": "^0.2.0"
-  },
-  "peerDependencies": {
-    "xlsx-populate": ">=1.0.0"
   }
 }
