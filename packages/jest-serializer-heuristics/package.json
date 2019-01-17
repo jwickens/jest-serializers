@@ -1,0 +1,7 @@
+{
+  "name": "jest-serializer-heuristics",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "https://github.com/jwickens/jest-serializers/packages/jest-serializer-heuristics"
+}

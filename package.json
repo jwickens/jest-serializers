@@ -1,20 +1,21 @@
 {
-  "name": "jest-serializer-xlsx-populate",
-  "version": "1.1.4",
-  "main": "index.js",
+  "name": "jest-serializers",
+  "version": "0.0.1",
+  "private": true,
   "license": "MIT",
   "devDependencies": {
-    "jest": "^23.6.0"
-  },
-  "dependencies": {
-    "text-table": "^0.2.0"
-  },
-  "peerDependencies": {
-    "xlsx-populate": ">=1.0.0"
+    "jest": "^23.6.0",
+    "lerna": "^3.10.5",
+    "xlsx-populate": "^1.19.0"
   },
   "jest": {
     "snapshotSerializers": [
-      "./index.js"
-    ]
-  }
+      "./packages/jest-serializer-xlsx-populate/index.js",
+      "./packages/jest-serializer-json-date-id-mask/index.js"
+    ],
+    "testEnvironment": "node"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }

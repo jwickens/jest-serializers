@@ -1,7 +1,8 @@
 const Workbook = require('xlsx-populate/lib/Workbook');
-const XlsxPopulate = require('xlsx-populate');
 const table = require('text-table');
- 
+const XlsxPopulate = require('xlsx-populate');
+const { isTodaysDate: _isTodaysDate } = require('jest-serializer-heuristics');
+
 module.exports = {
   test (val) {
     return val instanceof Workbook
@@ -29,7 +30,7 @@ module.exports = {
             row[j] = typeof row[j] === 'number' ? '<date>': row[j]
           } else if (heading.match(/id/i)) {
             row[j] = row[j] ? '<id>': row[j]
-          } else if (isTodaysDateHeuristic(row[j])) {
+          } else if (isTodaysDate(row[j])) {
             row[j] = '<date>'
           }
         });
@@ -43,18 +44,10 @@ module.exports = {
   }
 }
 
-function isTodaysDateHeuristic (value) {
-  let d
+function isTodaysDate (value) {
+  let d = value
   if (typeof value === 'number') {
     d = XlsxPopulate.numberToDate(value)
-  } else if (typeof value === 'string') {
-    if (!isNaN(Date.parse(value))) {
-      d = new Date(value)
-    }
   }
-  const now = new Date()
-  if (d) {
-    return now.toDateString() === d.toDateString()
-  }
-  return false
+  return _isTodaysDate(d)
 }

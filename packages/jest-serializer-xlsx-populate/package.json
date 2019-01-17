@@ -1,0 +1,10 @@
+{
+  "name": "jest-serializer-xlsx-populate",
+  "version": "1.1.5",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "https://github.com/jwickens/jest-serializers/packages/jest-serializer-xlsx-populate",
+  "dependencies": {
+    "jest-serializer-heuristics": "^0.0.1"
+  }
+}

@@ -29,11 +29,13 @@ async function createTestData () {
   return wb
 }
 
-it('saves a snapshot', async () => {
-  const d = await createTestData()
-  expect(d).toMatchSnapshot()
-})
+describe('jest-serializer-xlsx-populate', () => {
+  it('saves a snapshot', async () => {
+    const d = await createTestData()
+    expect(d).toMatchSnapshot()
+  })
 
-it('ignores other data types', () => {
-  expect({type: 'not a workbook'}).toMatchSnapshot()
+  it('ignores other data types', () => {
+    expect({type: 'not a workbook'}).toMatchSnapshot()
+  })
 })

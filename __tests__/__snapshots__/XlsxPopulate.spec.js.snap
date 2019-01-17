@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`jest-serializer-xlsx-populate ignores other data types 1`] = `
+{
+  "type": "not a workbook"
+}
+`;
+
+exports[`jest-serializer-xlsx-populate saves a snapshot 1`] = `
+Sheet1:
+
+This is neat!
+---
+Sheet2:
+
+Student  Grade
+John     F
+Sally    A+
+Kim
+---
+Masks:
+
+Date    Time    ID    some other dt  dt as text
+<date>  <time>  <id>  <date>         <date>
+---
+
+`;

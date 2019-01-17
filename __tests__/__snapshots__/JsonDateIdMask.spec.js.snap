@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`jest-serializer-json-date-id-mask it will serialize ids 1`] = `
+{
+  "myId": "<id>"
+}
+`;
+
+exports[`jest-serializer-json-date-id-mask it will serialize todays date 1`] = `
+{
+  "someKey": "<date>",
+  "someOtherKey": "<date>"
+}
+`;
+
+exports[`jest-serializer-json-date-id-mask wont do anything to non objects 1`] = `"id"`;
+
+exports[`jest-serializer-json-date-id-mask wont do anything to non objects 2`] = `"1990-01-01T00:00:00.000Z"`;
+
+exports[`jest-serializer-json-date-id-mask wont do anything to non objects 3`] = `0`;
+
+exports[`jest-serializer-json-date-id-mask works with nested objects 1`] = `
+{
+  "id": {
+    "id": {
+      "date": "<date>",
+      "id": "<id>",
+      "someOtherDate": "<date>"
+    }
+  }
+}
+`;

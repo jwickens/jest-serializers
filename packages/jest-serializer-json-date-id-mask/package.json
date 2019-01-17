@@ -1,0 +1,14 @@
+{
+  "name": "jest-serializer-json-date-id-mask",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "https://github.com/jwickens/jest-serializers/packages/jest-serializer-json-date-id-mask",
+  "dependencies": {
+    "jest-serializer-heuristics": "^0.0.1",
+    "text-table": "^0.2.0"
+  },
+  "peerDependencies": {
+    "xlsx-populate": ">=1.0.0"
+  }
+}
