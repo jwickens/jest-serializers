@@ -28,7 +28,7 @@ module.exports = {
       const headerIndex = rowsLengths.findIndex(l => l === maxLength)
       const header = cleanedValues[headerIndex]
       const maskedValues = cleanedValues.map((row, i) => {
-        if (i < headerIndex) {
+        if (i <= headerIndex) {
           return row
         }
         header.forEach((heading, j) => {
