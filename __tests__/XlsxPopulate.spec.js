@@ -24,6 +24,8 @@ async function createTestData () {
   wb.sheet("Masks").cell("D2").value(XlsxPopulate.dateToNumber(new Date()))
   wb.sheet("Masks").cell("E1").value("dt as text")
   wb.sheet("Masks").cell("E2").value((new Date().toLocaleDateString()))
+  wb.sheet("Masks").cell("F1").value("barcode")
+  wb.sheet("Masks").cell("F2").value(Math.floor(Math.random() * 1000))
 
 
   return wb

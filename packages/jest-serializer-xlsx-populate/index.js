@@ -28,6 +28,8 @@ module.exports = {
             row[j] = typeof row[j] === 'number' ? '<time>': row[j]
           } else if (heading.match(/date/i)) {
             row[j] = typeof row[j] === 'number' ? '<date>': row[j]
+          } else if (heading.match(/barcode/i)) {
+            row[j] = !!row[j] ? '<barcode>': row[j]
           } else if (heading.match(/id/i)) {
             row[j] = row[j] ? '<id>': row[j]
           } else if (isTodaysDate(row[j])) {

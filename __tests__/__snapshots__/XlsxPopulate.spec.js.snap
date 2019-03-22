@@ -20,8 +20,8 @@ Kim
 ---
 Masks:
 
-Date    Time    ID    some other dt  dt as text
-<date>  <time>  <id>  <date>         <date>
+Date    Time    ID    some other dt  dt as text  barcode
+<date>  <time>  <id>  <date>         <date>      <barcode>
 ---
 
 `;
