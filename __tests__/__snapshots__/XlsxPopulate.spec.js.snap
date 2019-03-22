@@ -20,8 +20,15 @@ Kim
 ---
 Masks:
 
-Date    Time    ID    some other dt  dt as text  barcode
+Date    Time    <id>  some other dt  dt as text  <barcode>
 <date>  <time>  <id>  <date>         <date>      <barcode>
+---
+Masks with subtotals and header:
+
+Header
+Date      Time    <id>  some other dt  dt as text  <barcode>
+Subtotal
+<date>    <time>  <id>  <date>         <date>      <barcode>
 ---
 
 `;

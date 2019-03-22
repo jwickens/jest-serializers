@@ -27,6 +27,21 @@ async function createTestData () {
   wb.sheet("Masks").cell("F1").value("barcode")
   wb.sheet("Masks").cell("F2").value(Math.floor(Math.random() * 1000))
 
+  wb.addSheet('Masks with subtotals and header')
+  wb.sheet("Masks with subtotals and header").cell("A1").value("Header")
+  wb.sheet("Masks with subtotals and header").cell("A2").value("Date")
+  wb.sheet("Masks with subtotals and header").cell("A3").value("Subtotal")
+  wb.sheet("Masks with subtotals and header").cell("A4").value(XlsxPopulate.dateToNumber(new Date()))
+  wb.sheet("Masks with subtotals and header").cell("B2").value("Time")
+  wb.sheet("Masks with subtotals and header").cell("B4").value(XlsxPopulate.dateToNumber(new Date()))
+  wb.sheet("Masks with subtotals and header").cell("C2").value("ID")
+  wb.sheet("Masks with subtotals and header").cell("C4").value(Math.floor(Math.random() * 100))
+  wb.sheet("Masks with subtotals and header").cell("D2").value("some other dt")
+  wb.sheet("Masks with subtotals and header").cell("D4").value(XlsxPopulate.dateToNumber(new Date()))
+  wb.sheet("Masks with subtotals and header").cell("E2").value("dt as text")
+  wb.sheet("Masks with subtotals and header").cell("E4").value((new Date().toLocaleDateString()))
+  wb.sheet("Masks with subtotals and header").cell("F2").value("barcode")
+  wb.sheet("Masks with subtotals and header").cell("F4").value(Math.floor(Math.random() * 1000))
 
   return wb
 }
