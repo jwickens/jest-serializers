@@ -22,6 +22,8 @@ function recurseSerialize (obj) {
     if (typeof v === 'string' || typeof v === 'number' || v instanceof Date) {
       if (k.match(/id/i)) {
         obj[k] = '<id>'
+      } else if (k.match(/barcode/i)) {
+        obj[k] = '<barcode>'
       } else if (isTodaysDate(v)) {
         obj[k] = '<date>'
       } 

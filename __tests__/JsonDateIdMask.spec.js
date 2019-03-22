@@ -16,6 +16,10 @@ describe('jest-serializer-json-date-id-mask', () => {
     expect({someKey: new Date(), someOtherKey: (new Date()).toISOString()}).toMatchSnapshot()
   })
 
+  it('it will serialize barcodes', () => {
+    expect({'my barcode': Math.floor(Math.random() * 1000)}).toMatchSnapshot()
+  })
+
   it('works with nested objects', () => {
     expect({id: {id: {date: new Date(), id: randomNumber(), someOtherDate: (new Date()).toLocaleDateString()}}}).toMatchSnapshot()
   })

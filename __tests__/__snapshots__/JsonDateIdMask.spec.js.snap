@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`jest-serializer-json-date-id-mask it will serialize barcodes 1`] = `
+Object {
+  "my barcode": "<barcode>",
+}
+`;
+
 exports[`jest-serializer-json-date-id-mask it will serialize ids 1`] = `
 Object {
   "myId": "<id>",
