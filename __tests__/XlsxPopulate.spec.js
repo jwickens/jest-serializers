@@ -26,6 +26,8 @@ async function createTestData () {
   wb.sheet("Masks").cell("E2").value((new Date().toLocaleDateString()))
   wb.sheet("Masks").cell("F1").value("barcode")
   wb.sheet("Masks").cell("F2").value(Math.floor(Math.random() * 1000))
+  wb.sheet("Masks").cell("G1").value("field")
+  wb.sheet("Masks").cell("G2").value(`My ID: ${Math.floor(Math.random() * 100)}`)
 
   wb.addSheet('Masks with subtotals and header')
   wb.sheet("Masks with subtotals and header").cell("A1").value("Header")
@@ -42,6 +44,8 @@ async function createTestData () {
   wb.sheet("Masks with subtotals and header").cell("E4").value((new Date().toLocaleDateString()))
   wb.sheet("Masks with subtotals and header").cell("F2").value("barcode")
   wb.sheet("Masks with subtotals and header").cell("F4").value(Math.floor(Math.random() * 1000))
+  wb.sheet("Masks with subtotals and header").cell("G2").value("field")
+  wb.sheet("Masks with subtotals and header").cell("G4").value(`My ID: ${Math.floor(Math.random() * 100)}`)
 
   return wb
 }

@@ -3,6 +3,12 @@ const table = require('text-table');
 const XlsxPopulate = require('xlsx-populate');
 const { isTodaysDate: _isTodaysDate } = require('jest-serializer-heuristics');
 
+const TIME_HEADING_REG = /time/i
+const DATE_HEADING_REG = /date/i
+const ID_HEADING_REG = /id/i
+const ID_VAL_REG = /(\sID:\s)(\d+)/
+const BARCODE_HEADING_REG = /barcode/i
+
 module.exports = {
   test (val) {
     return val instanceof Workbook
@@ -32,14 +38,18 @@ module.exports = {
           return row
         }
         header.forEach((heading, j) => {
-          if (heading.match(/time/i)) {
+          if (heading.match(TIME_HEADING_REG)) {
             row[j] = typeof row[j] === 'number' ? '<time>': row[j]
-          } else if (heading.match(/date/i)) {
+          } else if (heading.match(DATE_HEADING_REG)) {
             row[j] = typeof row[j] === 'number' ? '<date>': row[j]
-          } else if (heading.match(/barcode/i)) {
+          } else if (heading.match(BARCODE_HEADING_REG)) {
             row[j] = !!row[j] ? '<barcode>': row[j]
-          } else if (heading.match(/id/i)) {
+          } else if (heading.match(ID_HEADING_REG)) {
             row[j] = row[j] ? '<id>': row[j]
+          } else if (typeof row[j] === 'string' && row[j].match(ID_VAL_REG)) {
+            row[j] = row[j].replace(ID_VAL_REG, (match, p1, p2) => {
+              return p1 + '<id>';
+            })
           } else if (isTodaysDate(row[j])) {
             row[j] = '<date>'
           }

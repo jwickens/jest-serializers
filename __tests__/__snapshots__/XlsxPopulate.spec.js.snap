@@ -20,15 +20,15 @@ Kim
 ---
 Masks:
 
-Date    Time    ID    some other dt  dt as text  barcode
-<date>  <time>  <id>  <date>         <date>      <barcode>
+Date    Time    ID    some other dt  dt as text  barcode    field
+<date>  <time>  <id>  <date>         <date>      <barcode>  My ID: <id>
 ---
 Masks with subtotals and header:
 
 Header
-Date      Time    ID    some other dt  dt as text  barcode
+Date      Time    ID    some other dt  dt as text  barcode    field
 Subtotal
-<date>    <time>  <id>  <date>         <date>      <barcode>
+<date>    <time>  <id>  <date>         <date>      <barcode>  My ID: <id>
 ---
 
 `;
