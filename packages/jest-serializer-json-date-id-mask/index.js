@@ -16,7 +16,7 @@ module.exports = {
 }
 
 const ID_KEY_REG = /id/i
-const ID_VAL_REG = /(\sID:\s)(\d+)/
+const ID_VAL_REG = /(\sID:\s)(\d+)/g
 const BARCODE_KEY_REG = /barcode/i
 
 function recurseSerialize (obj) {

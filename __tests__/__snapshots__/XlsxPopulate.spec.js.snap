@@ -26,9 +26,9 @@ Date    Time    ID    some other dt  dt as text  barcode    field
 Masks with subtotals and header:
 
 Header
-Date      Time    ID    some other dt  dt as text  barcode    field
+Date      Time    ID    some other dt  dt as text  barcode    field        field
 Subtotal
-<date>    <time>  <id>  <date>         <date>      <barcode>  My ID: <id>
+<date>    <time>  <id>  <date>         <date>      <barcode>  My ID: <id>  My ID: <id> Second ID: <id>
 ---
 
 `;

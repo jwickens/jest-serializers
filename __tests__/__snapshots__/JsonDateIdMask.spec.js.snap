@@ -12,9 +12,9 @@ Object {
 }
 `;
 
-exports[`jest-serializer-json-date-id-mask it will serialize ids 2`] = `
+exports[`jest-serializer-json-date-id-mask it will serialize ids in value 1`] = `
 Object {
-  "field": "my ID: <id>",
+  "field": "my ID: <id> second ID: <id>",
 }
 `;
 

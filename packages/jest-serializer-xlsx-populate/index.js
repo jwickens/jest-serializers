@@ -6,7 +6,7 @@ const { isTodaysDate: _isTodaysDate } = require('jest-serializer-heuristics');
 const TIME_HEADING_REG = /time/i
 const DATE_HEADING_REG = /date/i
 const ID_HEADING_REG = /id/i
-const ID_VAL_REG = /(\sID:\s)(\d+)/
+const ID_VAL_REG = /(\sID:\s)(\d+)/g
 const BARCODE_HEADING_REG = /barcode/i
 
 module.exports = {

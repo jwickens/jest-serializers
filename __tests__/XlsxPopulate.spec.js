@@ -46,6 +46,8 @@ async function createTestData () {
   wb.sheet("Masks with subtotals and header").cell("F4").value(Math.floor(Math.random() * 1000))
   wb.sheet("Masks with subtotals and header").cell("G2").value("field")
   wb.sheet("Masks with subtotals and header").cell("G4").value(`My ID: ${Math.floor(Math.random() * 100)}`)
+  wb.sheet("Masks with subtotals and header").cell("H2").value("field")
+  wb.sheet("Masks with subtotals and header").cell("H4").value(`My ID: ${Math.floor(Math.random() * 100)} Second ID: ${Math.floor(Math.random() * 100)}`)
 
   return wb
 }

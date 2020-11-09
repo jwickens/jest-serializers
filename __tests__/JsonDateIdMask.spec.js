@@ -12,8 +12,8 @@ describe('jest-serializer-json-date-id-mask', () => {
     expect({myId: randomNumber()}).toMatchSnapshot()
   })
 
-  it('it will serialize ids', () => {
-    expect({field: `my ID: ${randomNumber()}`}).toMatchSnapshot()
+  it('it will serialize ids in value', () => {
+    expect({field: `my ID: ${randomNumber()} second ID: ${randomNumber()}`}).toMatchSnapshot()
   })
 
   it('it will serialize todays date', () => {
