@@ -1,6 +1,6 @@
 {
   "name": "jest-serializer-json-date-id-mask",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "main": "index.js",
   "license": "MIT",
   "repository": "https://github.com/jwickens/jest-serializers/tree/master/packages/jest-serializer-json-date-id-mask",
