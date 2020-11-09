@@ -12,6 +12,12 @@ Object {
 }
 `;
 
+exports[`jest-serializer-json-date-id-mask it will serialize ids 2`] = `
+Object {
+  "field": "my ID: <id>",
+}
+`;
+
 exports[`jest-serializer-json-date-id-mask it will serialize todays date 1`] = `
 Object {
   "someKey": "<date>",
