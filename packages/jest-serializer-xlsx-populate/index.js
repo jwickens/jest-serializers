@@ -16,7 +16,13 @@ module.exports = {
   print (wb) {
     let str = ''
     for (const sheet of wb.sheets()) {
-      const values = sheet.usedRange().value()
+      const usedRange = sheet.usedRange()
+      if (!usedRange) {
+        str += sheet.name() + ':\n\n'
+        str += '\n---\n'
+        return str
+      }
+      const values = usedRange.value()
       const cleanedValues = values.map(row => row.map(value => {
         if (value === undefined) {
           return ''
@@ -38,6 +44,9 @@ module.exports = {
           return row
         }
         header.forEach((heading, j) => {
+          if (typeof heading !== 'string') {
+            return
+          }
           if (heading.match(TIME_HEADING_REG)) {
             row[j] = typeof row[j] === 'number' ? '<time>': row[j]
           } else if (heading.match(DATE_HEADING_REG)) {
