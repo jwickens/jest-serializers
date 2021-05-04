@@ -86,4 +86,15 @@ describe('jest-serializer-xlsx-populate', () => {
   it('ignores other data types', () => {
     expect({type: 'not a workbook'}).toMatchSnapshot()
   })
+
+  it('masks with subheader', async () => {
+    const wb = await XlsxPopulate.fromBlankAsync()
+    wb.sheet("Sheet1").cell("A1").value("Header")
+    wb.sheet("Sheet1").cell("B1").value("Employee ID")
+    wb.sheet("Sheet1").cell("A2").value("Subheader")
+    wb.sheet("Sheet1").cell("A3").value('Annie')
+    wb.sheet("Sheet1").cell("B3").value(1)
+
+    expect(wb).toMatchSnapshot()
+  })
 })

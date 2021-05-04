@@ -6,6 +6,16 @@ Object {
 }
 `;
 
+exports[`jest-serializer-xlsx-populate masks with subheader 1`] = `
+Sheet1:
+
+Header     Employee ID
+Subheader
+Annie      <id>
+---
+
+`;
+
 exports[`jest-serializer-xlsx-populate saves a snapshot 1`] = `
 Sheet1:
 

@@ -5,16 +5,23 @@ function cluster (matrix) {
   const clusterToCoords = {};
   matrix.forEach((row, i) => {
     row.forEach((cell, j) => {
-      if (cell === '' || cell === null || typeof cell === 'undefined') {
+      if (cell === '' || cell === null || cell === undefined) {
         return
       }
 
       let cluster;
       if (coordToCluster[i-1] && coordToCluster[i-1][j]) {
         cluster = coordToCluster[i-1][j]
-      } else if (coordToCluster[i] && coordToCluster[i][j-1]) {
-        cluster = coordToCluster[i][j-1]
-      } else {
+      } else if (coordToCluster[i]) {
+        for (let prevJ = j - 1; prevJ >= 0; prevJ--) {
+          if (coordToCluster[i][prevJ]) {
+            cluster = coordToCluster[i][prevJ]
+            break
+          }
+        }
+      }
+
+      if (!cluster) {
         cluster = clusterCount
         clusterCount += 1
       }

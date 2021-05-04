@@ -28,4 +28,29 @@ describe('cluster', () => {
     expect(clusterToHeader[1]).toEqual(['Heading A', 'Heading B', ''])
     expect(clusterToHeader[2]).toEqual(['', 'Heading C', 'Heading D'])
   })
+
+  it('finds the correct header with subheaders', () => {
+    const values = [
+      ['Heading A', 'Heading B', ''],
+      ['Subheader', '', ''],
+      [1, 2, ''],
+    ]
+
+    const { clusterToHeader, coordToCluster } = cluster(values)
+    expect(clusterToHeader[1]).toEqual(['Heading A', 'Heading B', ''])
+    expect(coordToCluster[2][0]).toBe(1)
+    expect(coordToCluster[2][1]).toBe(1)
+  })
+
+  it('finds the correct header with missing row data and subheader', () => {
+    const values = [
+      ['Heading A', 'Heading B', 'Header C'],
+      ['Subheader', '', ''],
+      ['Foo', '', 1]
+    ]
+
+    const { clusterToHeader, coordToCluster } = cluster(values)
+    expect(clusterToHeader[1]).toEqual(['Heading A', 'Heading B', 'Header C'])
+    expect(coordToCluster[2][2]).toBe(1)
+  })
 });
