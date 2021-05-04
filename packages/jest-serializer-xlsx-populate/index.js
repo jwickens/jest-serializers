@@ -8,6 +8,8 @@ const DATE_HEADING_REG = /date/i
 const ID_HEADING_REG = /id/i
 const ID_VAL_REG = /(\sID:\s)(\d+)/g
 const BARCODE_HEADING_REG = /barcode/i
+const ISO_DATE_FORMAT = /\d{4}-\d{1,2}-\d{1,2}/
+const COMMON_DATE_FORMAT = /\d{1,2}\/\d{1,2}-\d{4}/
 
 module.exports = {
   test (val) {
@@ -50,7 +52,15 @@ module.exports = {
           if (heading.match(TIME_HEADING_REG)) {
             row[j] = typeof row[j] === 'number' ? '<time>': row[j]
           } else if (heading.match(DATE_HEADING_REG)) {
-            row[j] = typeof row[j] === 'number' ? '<date>': row[j]
+            if (typeof row[j] === 'number') {
+              row[j] = '<date>'
+            } else if (typeof row[j] === 'string') {
+              if (row[j].match(ISO_DATE_FORMAT)) {
+                row[j] = '<date>'
+              } else if (row[j].match(COMMON_DATE_FORMAT)) {
+                row[j] = '<date>'
+              }
+            }
           } else if (heading.match(BARCODE_HEADING_REG)) {
             row[j] = !!row[j] ? '<barcode>': row[j]
           } else if (heading.match(ID_HEADING_REG)) {

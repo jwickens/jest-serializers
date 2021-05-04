@@ -35,6 +35,12 @@ Masks with numbers in header:
 Header  0
 x       x
 ---
+Masks CAPITALIZED SUBHEADERS:
+
+Header
+START DATE  END DATE
+<date>      <date>
+---
 Empty sheet:
 
 

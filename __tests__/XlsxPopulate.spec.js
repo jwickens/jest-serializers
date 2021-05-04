@@ -55,6 +55,13 @@ async function createTestData () {
   wb.sheet("Masks with numbers in header").cell("B1").value(0)
   wb.sheet("Masks with numbers in header").cell("B2").value("x")
 
+  wb.addSheet('Masks CAPITALIZED SUBHEADERS')
+  wb.sheet("Masks CAPITALIZED SUBHEADERS").cell("A1").value("Header")
+  wb.sheet("Masks CAPITALIZED SUBHEADERS").cell("A2").value("START DATE")
+  wb.sheet("Masks CAPITALIZED SUBHEADERS").cell("A3").value(`2021-04-0${Math.ceil(Math.random() * 9)}`)
+  wb.sheet("Masks CAPITALIZED SUBHEADERS").cell("B2").value("END DATE")
+  wb.sheet("Masks CAPITALIZED SUBHEADERS").cell("B3").value(`2021-04-2${Math.ceil(Math.random() * 9)}`)
+
   wb.addSheet('Empty sheet')
   return wb
 }
