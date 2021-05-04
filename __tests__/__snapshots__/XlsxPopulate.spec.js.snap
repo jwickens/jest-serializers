@@ -35,11 +35,19 @@ Masks with numbers in header:
 Header  0
 x       x
 ---
-Masks CAPITALIZED SUBHEADERS:
+Masks strings & sub-tables:
 
-Header
-START DATE  END DATE
-<date>      <date>
+TRENDS
+
+Report date range
+START DATE         END DATE
+<date>             <date>
+
+
+Sale Summary
+Name               Sold      Last Reported
+Bob                10        <date>
+Sally              20        <date>
 ---
 Empty sheet:
 

@@ -3,6 +3,8 @@ const table = require('text-table');
 const XlsxPopulate = require('xlsx-populate');
 const { isTodaysDate: _isTodaysDate } = require('jest-serializer-heuristics');
 
+const { cluster } = require('./cluster');
+
 const TIME_HEADING_REG = /time/i
 const DATE_HEADING_REG = /date/i
 const ID_HEADING_REG = /id/i
@@ -32,20 +34,20 @@ module.exports = {
           return value
         }
       }))
-      const rowsLengths = values.map(row => row.reduce((agg, r) => {
-        if (!!r) {
-          return agg + 1
-        }
-        return agg
-      },0));
-      const maxLength = Math.max(...rowsLengths)
-      const headerIndex = rowsLengths.findIndex(l => l === maxLength)
-      const header = cleanedValues[headerIndex]
+
+      const { coordToCluster, clusterToHeader, clusterToHeaderIndex } = cluster(cleanedValues)
+
       const maskedValues = cleanedValues.map((row, i) => {
-        if (i <= headerIndex) {
-          return row
-        }
-        header.forEach((heading, j) => {
+        row.forEach((cell, j) => {
+          if (cell === '' || cell === null || cell === undefined) {
+            return
+          }
+          const cluster = coordToCluster[i][j]
+          const headerIndex = clusterToHeaderIndex[cluster]
+          if (headerIndex === undefined || i <= headerIndex) {
+            return row
+          }
+          const heading = clusterToHeader[cluster][j]
           if (typeof heading !== 'string') {
             return
           }
