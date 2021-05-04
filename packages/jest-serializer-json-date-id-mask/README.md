@@ -1,4 +1,4 @@
-# Serializer for Objects included volatile dates and IDS
+# Serializer for Objects that include volatile dates and IDS
 
 This is useful for example when testing with a DB that generates IDs and Dates 
 
