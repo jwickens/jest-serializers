@@ -6,6 +6,22 @@ Object {
 }
 `;
 
+exports[`jest-serializer-xlsx-populate masks dates correctly 1`] = `
+Sheet1:
+
+
+---
+Masks with native dates:
+
+Header  Header
+1       <date>
+2       <date>
+3       <date>
+4       <date>
+---
+
+`;
+
 exports[`jest-serializer-xlsx-populate masks with subheader 1`] = `
 Sheet1:
 
@@ -62,6 +78,25 @@ Sally              20        <date>
 Empty sheet:
 
 
+---
+
+`;
+
+exports[`jest-serializer-xlsx-populate snapshots a real excel file correctly 1`] = `
+Sheet1:
+
+ID    Name         Created On
+<id>  PB&J         <date>
+<id>  Salad        <date>
+<id>  Eggs         <date>
+<id>  Fruit Salad  <date>
+<id>  Burger       <date>
+<id>  PB&J         <date>
+<id>  Salad        <date>
+<id>  Eggs         <date>
+<id>  Fruit Salad  <date>
+<id>  Burger       <date>
+<id>  PB&J         <date>
 ---
 
 `;

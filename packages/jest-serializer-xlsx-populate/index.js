@@ -12,6 +12,7 @@ const ID_VAL_REG = /(\sID:\s)(\d+)/g
 const BARCODE_HEADING_REG = /barcode/i
 const ISO_DATE_FORMAT = /\d{4}-\d{1,2}-\d{1,2}/
 const COMMON_DATE_FORMAT = /\d{1,2}\/\d{1,2}-\d{4}/
+const EXCEL_DATE_FORMAT = /[mdyhms]{1,3}/;
 
 module.exports = {
   test (val) {
@@ -20,11 +21,12 @@ module.exports = {
   print (wb) {
     let str = ''
     for (const sheet of wb.sheets()) {
+      console.log(sheet.name())
       const usedRange = sheet.usedRange()
       if (!usedRange) {
         str += sheet.name() + ':\n\n'
         str += '\n---\n'
-        return str
+        continue;
       }
       const values = usedRange.value()
       const cleanedValues = values.map(row => row.map(value => {
@@ -51,8 +53,14 @@ module.exports = {
           if (typeof heading !== 'string') {
             return
           }
+          const originalCell = usedRange.cell(i, j);
+          const numberFormat = originalCell.style('numberFormat');
+          const formatIsDate = !!numberFormat.match(EXCEL_DATE_FORMAT);
+
           if (heading.match(TIME_HEADING_REG)) {
             row[j] = typeof row[j] === 'number' ? '<time>': row[j]
+          } else if (typeof row[j] === 'number' && (formatIsDate)) {
+            row[j] = '<date>'
           } else if (heading.match(DATE_HEADING_REG)) {
             if (typeof row[j] === 'number') {
               row[j] = '<date>'

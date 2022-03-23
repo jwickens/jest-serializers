@@ -1,4 +1,5 @@
 const XlsxPopulate = require('xlsx-populate');
+const path = require('path');
 
 async function createTestData () {
   const wb = await XlsxPopulate.fromBlankAsync()
@@ -97,4 +98,25 @@ describe('jest-serializer-xlsx-populate', () => {
 
     expect(wb).toMatchSnapshot()
   })
+
+  it('masks dates correctly', async () => {
+    const wb = await XlsxPopulate.fromBlankAsync()
+    wb.addSheet("Masks with native dates")
+    wb.sheet("Masks with native dates").cell("A1").value("Header")
+    wb.sheet("Masks with native dates").cell("A2").value(1)
+    wb.sheet("Masks with native dates").cell("A3").value(2)
+    wb.sheet("Masks with native dates").cell("A4").value(3)
+    wb.sheet("Masks with native dates").cell("A5").value(4)
+    wb.sheet("Masks with native dates").cell("B1").value("Header")
+    wb.sheet("Masks with native dates").cell("B2").value((new Date(1990, 1, 2)).valueOf()).style('numberFormat', 'mm/dd/yy');
+    wb.sheet("Masks with native dates").cell("B3").value(new Date()).style('numberFormat', 'mm/dd/yy');
+    wb.sheet("Masks with native dates").cell("B4").value(new Date('1990-01-01').valueOf()).style('numberFormat', 'yyyy-mm-dd');
+    wb.sheet("Masks with native dates").cell("B5").value(new Date()).style('numberFormat', 'yyyy-mm-dd');
+    expect(wb).toMatchSnapshot()
+  });
+
+  it.only('snapshots a real excel file correctly', async () => {
+    const wb = await XlsxPopulate.fromFileAsync(path.join(__dirname, '../__assets__/Example-1.xlsx'));
+    expect(wb).toMatchSnapshot()
+  });
 })
