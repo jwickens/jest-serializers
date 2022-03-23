@@ -21,7 +21,6 @@ module.exports = {
   print (wb) {
     let str = ''
     for (const sheet of wb.sheets()) {
-      console.log(sheet.name())
       const usedRange = sheet.usedRange()
       if (!usedRange) {
         str += sheet.name() + ':\n\n'
