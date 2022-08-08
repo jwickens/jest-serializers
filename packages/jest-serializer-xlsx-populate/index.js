@@ -73,6 +73,8 @@ module.exports = {
             })
           } else if (isTodaysDate(row[j])) {
             row[j] = '<date>'
+          } else if (isNearToday(row[j])) {
+            row[j] = '<date>';
           }
         });
         return row
@@ -91,4 +93,13 @@ function isTodaysDate (value) {
     d = XlsxPopulate.numberToDate(value)
   }
   return _isTodaysDate(d)
+}
+
+function isNearToday (value) {
+  if (typeof value === 'number') {
+    const d = XlsxPopulate.numberToDate(value)
+    const threshold = 1000 * 60 * 60 * 24 // 24 hour threshold
+    return Math.abs(Date.now() - d) < threshold;
+  }
+  return false;
 }
