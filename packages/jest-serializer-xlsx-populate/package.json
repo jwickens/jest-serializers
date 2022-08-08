@@ -1,10 +1,10 @@
 {
   "name": "jest-serializer-xlsx-populate",
-  "version": "1.6.1",
+  "version": "2.0.0",
   "main": "index.js",
   "license": "MIT",
   "repository": "https://github.com/jwickens/jest-serializers/tree/master/packages/jest-serializer-json-date-id-mask",
   "dependencies": {
-    "jest-serializer-heuristics": "^1.1.7"
+    "jest-serializer-heuristics": "^2.0.0"
   }
 }
