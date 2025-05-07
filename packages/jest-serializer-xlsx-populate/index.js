@@ -1,7 +1,7 @@
 const Workbook = require('xlsx-populate/lib/Workbook');
 const table = require('text-table');
 const XlsxPopulate = require('xlsx-populate');
-const { isTodaysDate: _isTodaysDate } = require('jest-serializer-heuristics');
+const { isTodaysDate: _isTodaysDate, isUUID } = require('jest-serializer-heuristics');
 
 const { cluster } = require('./cluster');
 
@@ -71,6 +71,10 @@ module.exports = {
             row[j] = row[j].replace(ID_VAL_REG, (match, p1, p2) => {
               return p1 + '<id>';
             })
+          } else if (isUUID(row[j])) {
+            row[j] = '<uuid>'
+          } else if (typeof row[j] === 'string' && row[j].match(/^\d{4}-\d{1,2}-\d{1,2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/)) {
+            row[j] = '<date>'
           } else if (isTodaysDate(row[j])) {
             row[j] = '<date>'
           } else if (isNearToday(row[j])) {

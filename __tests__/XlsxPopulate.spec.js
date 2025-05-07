@@ -73,6 +73,17 @@ async function createTestData () {
   wb.sheet("Masks strings & sub-tables").cell("D11").value(new Date())
   wb.sheet("Masks strings & sub-tables").cell("D12").value(new Date())
 
+  wb.addSheet('Masks with UUIDs')
+  wb.sheet("Masks with UUIDs").cell("A1").value("Header")
+  wb.sheet("Masks with UUIDs").cell("A2").value("x")
+  wb.sheet("Masks with UUIDs").cell("A3").value("x")
+  wb.sheet("Masks with UUIDs").cell("A4").value("x")
+  wb.sheet("Masks with UUIDs").cell("B1").value("Universal Assignment")
+  wb.sheet("Masks with UUIDs").cell("B2").value("123e4567-e89b-12d3-a456-426614174000")
+  wb.sheet("Masks with UUIDs").cell("B3").value("550e8400e29b41d4a716446655440000") // no dashes
+  wb.sheet("Masks with UUIDs").cell("B4").value("550e8400-e29b-41d4-a716-44665544000") // too short
+
+
   wb.addSheet('Empty sheet')
   return wb
 }
