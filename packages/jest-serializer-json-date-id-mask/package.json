@@ -1,11 +1,11 @@
 {
   "name": "jest-serializer-json-date-id-mask",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "index.js",
   "license": "MIT",
   "repository": "https://github.com/jwickens/jest-serializers/tree/master/packages/jest-serializer-json-date-id-mask",
   "dependencies": {
-    "jest-serializer-heuristics": "^2.0.0",
+    "jest-serializer-heuristics": "^3.0.0",
     "pretty-format": "^23.6.0",
     "text-table": "^0.2.0"
   }
